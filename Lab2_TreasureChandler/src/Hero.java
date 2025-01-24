@@ -88,26 +88,47 @@ public class Hero {
 
         // Sets the level to be a random value between 1 and 10
         level = rand.nextInt(10);
+
+        System.out.println(name + "'s level was randomized to " + level);
     } // End of setRandomLevel
 
     /**
      * Increases the hero's experience, with certain conditions in place
      * 
-     * @param experience        Hero's EXP
+     * @param exp        Hero's EXP
      */
-    public void gainExperience(int experience) {
+    public void gainExperience(int exp) {
         // Increase the hero's EXP
-        experience++;
+        experience += exp;
+        System.out.println("The party gained " + exp + " experience.");
 
-        /*
-         * If the EXP is greater than or equal to the max level, increase the
-         * level by 1, reset EXP to 0, and add any EXP that's leftover.
-         */
-        if (experience >= MAX_LEVEL) {
+        // Increase the hero's level through a check
+        while (level < MAX_LEVEL && experience >= LEVELS[level - 1]) {
+            experience -= LEVELS[level - 1];
             level++;
-            experience = 0;
+            System.out.println(name + " is now level " + level + "!");
 
-            
+            /*
+             * If the current level is greater than or equal to the max level,
+             * increase the level by 1, reset EXP to 0, and add any EXP that's
+             * leftover.
+             */
+            if (level >= MAX_LEVEL) {
+                experience = 0;
+                break;
+            }
         }
     } // End of gainExperience()
+
+    /**
+     * Returns a String containing information about the hero such as their
+     * name, class, level, and amount of experience.
+     */
+    @Override
+    public String toString() {
+        String heroStats = name + " the " + hClass + " is level " + level + 
+                            " with " + experience + " experience ";
+
+        return heroStats;
+    } // End of toString()
 } // End of Hero
