@@ -23,7 +23,7 @@ public class Hero {
         this.hClass = "";
         this.level = 1;
         this.experience = 0;
-    } // End of Hero
+    } // End of Hero()
 
     /**
      * Returns the hero's name
