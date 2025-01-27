@@ -123,6 +123,8 @@ public class Hero {
     /**
      * Returns a String containing information about the hero such as their
      * name, class, level, and amount of experience.
+     * 
+     * @return      The hero's stats
      */
     @Override
     public String toString() {
