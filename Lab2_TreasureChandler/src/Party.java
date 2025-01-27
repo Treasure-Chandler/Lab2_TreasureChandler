@@ -78,6 +78,8 @@ public class Party {
      * @param experience        Experience given to the hero
      */
     public void gainExperience(int experience) {
+        System.out.println("\nThe party gained " + experience + " experience.");
+
         // Loop through each hero in the party
         for (int i = 0; i < heroes.length; i++) {
             // Check if there is a hero at the current index
@@ -95,7 +97,7 @@ public class Party {
     @Override
     public String toString() {
         // Party string header
-        String currentParty = "Party" + "\n" + 
+        String currentParty = "\nParty" + "\n" + 
                                 "------------------------------" + "\n";
 
         // Loop through each hero in the party

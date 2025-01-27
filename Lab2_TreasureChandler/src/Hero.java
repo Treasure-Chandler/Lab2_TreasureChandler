@@ -35,33 +35,6 @@ public class Hero {
     } // End of getName()
 
     /**
-     * Returns the hero's class
-     * 
-     * @return      Hero's class param
-     */
-    public String getHClass() {
-        return this.hClass;
-    } // End of getHClass()
-
-    /**
-     * Returns the hero's level
-     * 
-     * @return      Hero's level param
-     */
-    public int getLevel() {
-        return this.level;
-    } // End of getLevel()
-
-    /**
-     * Modifies the hero's name
-     * 
-     * @return      Hero's name param
-     */
-    public String setName(String n) {
-        return this.name = n;
-    } // End of setName()
-
-    /**
      * Modifies the hero's class
      * 
      * @return      Hero's class param
@@ -69,15 +42,6 @@ public class Hero {
     public String setHClass(String h) {
         return this.hClass = h;
     } // End of setHClass()
-
-    /**
-     * Modifies the hero's level
-     * 
-     * @return      Hero's level param
-     */
-    public int setLevel(int l) {
-        return this.level = l;
-    } // End of setLevel()
 
     /**
      * Sets the level to be a random level between 1 and 10
@@ -89,7 +53,7 @@ public class Hero {
         // Sets the level to be a random value between 1 and 10
         level = rand.nextInt(10);
 
-        System.out.println(name + "'s level was randomized to " + level);
+        System.out.println("\n" + name + "'s level was randomized to " + level);
     } // End of setRandomLevel
 
     /**
@@ -100,7 +64,6 @@ public class Hero {
     public void gainExperience(int exp) {
         // Increase the hero's EXP
         experience += exp;
-        System.out.println("The party gained " + exp + " experience.");
 
         // Increase the hero's level through a check
         while (level < MAX_LEVEL && experience >= LEVELS[level - 1]) {
@@ -129,7 +92,7 @@ public class Hero {
     @Override
     public String toString() {
         String heroStats = name + " the " + hClass + " is level " + level + 
-                            " with " + experience + " experience ";
+                            " with " + experience + " experience " + "\n";
 
         return heroStats;
     } // End of toString()
